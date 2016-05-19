@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Funciones - Introducción</title>
+	</head>
+
+	<body>
+		<script>
+		//SINTAXIS DE UNA FUNCION
+		//function nombre_funcion (<parámetros_separados_por_comas) { ... }
+
+		//Función sin parámetros
+		function saludo (){
+			alert("¡Hola!");
+		}
+
+		//Los paréntesis () invocan a la función
+		var resultado_saludo = saludo();
+		alert (resultado_saludo);
+
+		//Sin paréntesis se puede guardar la función en una variable o mostrar
+		var resultado_saludo2 = saludo;
+		alert(resultado_saludo2);
+
+		//Función con parámetros
+		function producto (a, b){
+			return a * b;
+		}
+
+		//Los paréntesis () invocan a la función
+		var resultado_producto = producto(3, 4);
+		alert (resultado_producto);
+
+		//Podemos introducir en el alert diréctamente la función
+		alert (producto(5,6));
+
+		//Sin paréntesis se puede guardar la función en una variable o mostrar
+		alert (producto);
+
+		</script>
+	</body>
+</html>
