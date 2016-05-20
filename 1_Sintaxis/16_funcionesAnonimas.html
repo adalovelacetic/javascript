@@ -7,12 +7,21 @@
 
 	<body>
 		<script>
-		function maximo (){
-			alert ("El número de parámetros pasado es "+arguments.length);
-			for (var i=0; i<arguments.length; i++)
-				alert ("Parametro "+i+" es "+arguments[i]);
-		}
-		maximo (3,5,7,8);
+		//Sintaxis de una función no anónima
+		//function nombre (<parámetros>) { <instrucciones> }
+
+		//SINTAXIS DE UNA FUNCIÓN ANÓNIMA
+		var producto = function (a, b) { return a * b;};
+		var resultado = producto(3,6);
+		alert (resultado);
+
+		//EL CONSTRUCTOR FUNCTION()
+		var miFuncion = new Function ("a", "b", "return a*b;");
+		var resultado2 = miFuncion(5,7);
+		alert (resultado2);
+
+		//FUNCIONES ANÓNIMAS AUTOINVOCADAS
+		(function () { alert ("¡Hola!");}());
 
 		</script>
 	</body>
