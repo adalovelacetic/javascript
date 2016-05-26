@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Condicionales. Sentencia switch</title>
+	</head>
+
+	<body>
+		<script>
+			 /* SWITCH:
+			 - Se utiliza para hacer diferentes acciones basadas en diferentes condiciones. 
+			 - La condición se evalúa una única vez.
+			 - Si hay alguna coincidencia con algún valor se ejecuta el bloque de código correspondiente.
+			 - Break: sale del bloque switch.
+			 - Default: se ejecuta en caso de que la expresión no coincide con ningún valor.
+			 */
+
+			 /* SINTAXIS
+			 switch (<expresión>){
+				case valor_1: 
+					//Instrucciones para valor_1
+					break;
+				case valor_n:
+					//Instrucciones para valor_n
+					break;
+				default: 
+					//Instrucciones en caso de que no se cumpla ninguna condición.
+			 }*/
+
+			 var nota = 11;
+			 var mensaje = "";
+			 switch (nota){
+			 	case 0: 
+			 	case 1: 
+			 	case 2: 
+			 	case 3: 
+			 	case 4: 
+			 		mensaje = "Suspenso";
+			 		break;
+			 	case 5: 
+			 		mensaje = "Suficiente";
+			 		break;	
+			 	case 6: 
+			 		mensaje = "Bien";
+			 		break;
+			 	case 7: 
+			 	case 8: 
+			 		mensaje = "Notable";
+			 		break;
+			 	case 9: 
+			 	case 10: 
+			 		mensaje = "Sobresaliente";
+			 		break;
+			 	default:
+			 		mensaje = "El valor no es válido";
+			 }
+			 alert (mensaje);
+
+		</script>
+	</body>
+</html>
