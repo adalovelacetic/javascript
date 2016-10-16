@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Objetos nativos. Boolean</title>
+	</head>
+
+	<body>
+		<script>
+		//Función Boolean()
+		alert (10>9);
+
+		//Todos los valores reales son ciertos
+		alert("100 es "+Boolean(100));
+		alert("3.4 es "+Boolean(3.4));
+		alert("Hola es "+Boolean("Hola"));
+		alert("false "+Boolean("false"));
+		alert("-15 es "+Boolean(-15));
+		alert("5<6 es "+Boolean(5<6));
+
+		//Todos los valores que no son reales son falsos
+		alert("0 es "+Boolean(0));
+		alert("-0 es "+Boolean(-0));
+		alert("undefined es "+Boolean(undefined));
+		alert("null es "+Boolean(null));
+		alert("false es "+Boolean(false));
+		alert("NaN es "+Boolean(NaN));
+
+		var g;
+		if (!g) // Es equivalente a g==undefined
+		{
+			alert ("La g no está definida");
+		}
+
+		</script>
+	</body>
+</html>
