@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Objetos del navegador. Window</title>
+	</head>
+
+	<body>
+		<p id="ventana"></p>
+		<script>
+			/* CARACTERÍSTICAS:
+			- Representa una ventana abierta en un navegador.
+			- Si una ventana tiene etiquetas de tipo <iframe> el navegador crea un objeto window para el html inicial y uno para cada <iframe>
+			- Todos los objetos, funciones, variables... son miembros del objeto window: las funciones son sus métodos; las variables globales y el DOM sos propiedades.
+			- No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad.*/
+
+			//PROPIEDADES BÁSICAS DE WINDOW
+			window.name = "Mi ventana";
+			var texto = "";
+			//Nombre de la ventana
+			texto += "<br/>Nombre: "+window.name;
+			//Tamaño de la ventana con toolbar y scrollbar
+			texto += "<br/>Ancho externo: "+window.outerWidth;
+			texto += "<br/>Alto externo: "+window.outerHeight;
+			//Tamaño de la ventana sin toolbar ni scrollbar
+			texto += "<br/>Ancho interno: "+window.innerWidth;
+			texto += "<br/>Alto interno: "+window.innerHeight;	
+			//Scroll horizontal y vertical
+			texto += "<br/>Scroll horizontal: "+window.pageXOffset;
+			texto += "<br/>Scroll vertical: "+window.pageYOffset;	
+			//Distancia de la esquina superior izquierda
+			texto += "<br/>Distancia desde la izquierda: "+window.screenX;
+			texto += "<br/>Distancia desde arriba: "+window.screenY;	
+
+			document.getElementById("ventana").innerHTML = texto;
+			
+			/* PROPIEDADES CON IFRAMES:
+			-frames: devuelve todos los elementos iframe de la ventana.
+			- frameElement: devuelve el frame en el que la ventana está insertada.
+			- length: devuelve el número de frames que tiene la ventana. */
+
+			/*PROPIEDADES CON OTRAS VENTANAS:
+			- closed: devuelve un booleano si la ventana está cerrada.
+			- opener: devuelve una referencia con la ventana que creó la ventana actual. 
+			- parent: devuelve la ventana padre de la ventana actual.
+			- self: devuelve la ventana actual. */
+
+			/* OTROS OBJETOS DEL NAVEGADOR:
+			window.document
+			window.navigator
+			window.screen
+			window.history
+			windon.location*/
+
+			//MÉTODOS DE WINDOW MÁS IMPORTANTES
+			var miVentana; //Crear fuera de las funciones para poder acceder a ella
+
+			//open(<URL>,<nombre>,<especificaciones>)
+			function crearVentana(){
+				//miVentana=window.open("http://www.google.com");
+				miVentana = window.open("","","width=500,height=200");
+				miVentana.document.write("<h1>Mi ventana</h1>");
+			}
+
+			//close(): cierra una ventana en concreto
+			function cerrarVentana(){
+				miVentana.close();
+			}
+
+			//resizeBy(<nºpix>,<nºpix>): redimensiona una ventana un número de píxeles respecto a su tamaño actual
+			function redimensionarVentana(){
+				miVentana.resizeBy(10,10);
+			}
+			//resizeTo(<nºpix>,<nºpix>): redimensiona una ventana al número de píxeles indicado
+
+			//moveBy(<nºpix>,<nºpix>): mueve una ventana un número de píxeles respecto a su posición actual
+			function moverVentana(){
+				miVentana.moveBy(10,10);
+			}
+			//moveTo(<nºpix>,<nºpix>): mueve una ventana a una posición en concreto
+
+			//scrollBy(<nºpix>,<nºpix>): mueve las barras de scroll un número de píxeles desde la posición actual.
+			//scrollTo(<nºpix>,<nºpix>): mueve las barras de scroll un a una posición determinada
+
+			//focus(): pone el foco en la ventana indicada
+			function enfocar(){
+				miVentana.focus();
+			}
+
+			//print(): imprime la ventana indicada
+			function imprimir(){
+				//print();
+				miVentana.print();
+			}
+
+			//stop(): detener la carga de la página
+
+			</script>
+			<button onclick="crearVentana()">Crear ventana</button>
+			<button onclick="cerrarVentana()">Cerrar ventana</button>
+			<button onclick="redimensionarVentana()">Redimensionar ventana</button>
+			<button onclick="moverVentana()">Mover ventana</button>
+			<button onclick="enfocar()">Enfocar ventana</button>
+			<button onclick="imprimir()">Imprimir ventana</button>
+
+	</body>
+</html>
