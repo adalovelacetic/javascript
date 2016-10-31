@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Objetos del navegador. Window. Tiempo</title>
+	</head>
+
+	<body>
+		<p id="reloj"></p>
+		<script>
+			/* EVENTOS DE TIEMPO:
+			- El objeto window permite ejecutar código en intervalos de tiempo.
+			- Hay tres métodos: setTimeout, clearTimeout, setInterval */
+
+			//setTimeout(<funcion>, <milisegundos>): se indicar cuántos segundos tiene que pasar antes de que la función indicada en el primer parámetro se ejecute.
+			function saludar(){
+				alert ("¡Hola!");
+			}
+
+			//clearTimeout(<variable timeout>): si asignamos un setTimeout a una variable podemos detener su ejecución con clearTimeout.
+
+			//setInterval(<funcion>, <milisegundos>): repite una función cada intervalo de tiempo.
+			var int = setInterval(reloj, 1000);
+
+			function reloj(){
+				var fecha = new Date(); //Fecha actual
+				document.getElementById("reloj").innerHTML = fecha.getSeconds();
+			}
+
+
+		</script>
+		<button onclick="setTimeout(saludar,3000)">Saluda</button>
+		<button onclick="sal = setTimeout(saludar,3000)">Saluda con variable</button>
+		<button onclick="clearTimeout(sal)">Cancelar saludo</button>
+		<button onclick="clearTimeout(int)">Cancelar reloj</button>
+	</body>
+</html>
