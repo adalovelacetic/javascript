@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos. Obtener información de un evento</title>
+
+</head>
+
+<body>
+    <h1 id="eventos">Obtener información de un evento</h1>
+    <script>
+        <!-- Navegadores de Microsoft -->
+        var evento = window.event;
+
+        <!-- Navegadores del W3C -->
+        function manejador(e) { //Creado automáticamente por el navegador
+            var evento = e;
+        }
+
+        <!-- En cualquier navegador -->
+        function manejador2(e) {
+            var evento = e || window.event;
+
+            //Tratamiento de eventos en función del tipo (propiedad "type", devuelve un evento sin "on")
+            switch (evento.type) {
+            case 'mouseover':
+                this.style.color = "purple";
+                break;
+            case 'mouseout':
+                this.style.backgroundColor = "yellow";
+                break;
+            }
+        }
+        document.getElementById("eventos").onmouseover = manejador2;
+        document.getElementById("eventos").onmouseout = manejador2;
+    </script>
+</body>
+
+</html>

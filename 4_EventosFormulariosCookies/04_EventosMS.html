@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos. Modelo de registro de eventos avanzados de Microsoft</title>
+    <!--     
+        EVENTO:
+        Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.
+        Capturar un evento es programar una acción para que se realice una tarea.
+        El encargado de gestionar los eventos es el DOM(Document Object Model).
+
+        MANEJADOR:
+            Acción que se va a manejar. Por ejempo, en el evento click (hacer click con el ratón) el manejador es onClick.
+        -->
+</head>
+
+<body>
+    <h1>Modelo de eventos avanzados de Microsoft</h1>
+    <h3 id="ms">Modelo de Microsoft</h3>
+    <h3 id="msanonima">Modelo de Microsoft</h3>
+    <script>
+        /* elemento.attachEvent("<evento_con_on>",funcion); */
+        document.getElementById("ms").attachEvent("onclick", saludarUnaVez);
+        document.getElementById("ms").attachEvent("onclick", colorearse);
+        document.getElementById("ms").attachEvent("onmouseover", fondo);
+
+        function saludaUnaVez() {
+            alert("¡Hola, caracola!");
+            document.getElementById("ms").detachEvent("onclick", saludarUnaVez);
+        }
+
+        function colorearse() {
+            document.getElementById("ms").style.color = "red";
+        }
+
+        function fondo() {
+            document.getElementById("ms").style.backgroundColor = "blue";
+        }
+
+        /* Funciones anónimas */
+        /* elemento.attachEvent("<evento_con_on>",function(){...}); */
+        documnet.getElementById("msanonima").attachEvent("onclick", function () {
+            this.style.backgroundColor = "#C0C0C0";
+        });
+    </script>
+</body>
+
+</html>
