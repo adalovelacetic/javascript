@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario</title>
+    <script src="validacion.js"></script>
+    <style>
+        .error {
+            border: solid 2px #FF0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+    <form action="procesar.php" method="post" id="miFormulario">
+        <table>
+            <tr>
+                <td>Nombre: </td>
+                <td>
+                    <input type="text" name="nombre" id="nombre" />
+                </td>
+            </tr>
+            <tr>
+                <td>Telefono: </td>
+                <td>
+                    <input type="text" name="telefono" id="telefono" />
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento: </td>
+                <td>
+                    <input type="text" name="dia" size="2" id="dia" />
+                    <input type="text" name="mes" size="2" id="mes" />
+                    <input type="text" name="ano" id="ano" size="4" />
+                </td>
+            </tr>
+            <tr>
+                <td>Sexo : </td>
+                <td>
+                    <input type="radio" name="sexo" value="H" checked /> Hombre
+                    <input type="radio" name="sexo" value="M" /> Mujer
+                </td>
+            </tr>
+            <tr>
+                <td>Mayor de 18:</td>
+                <td>
+                    <input type="checkbox" name="mayor" id="mayor" checked/>
+                </td>
+            </tr>
+            </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Enviar" id="enviar" />
+            <input type="reset" value="Borrar" id="borrar" />
+        </p>
+    </form>
+</body>
+
+</html>
