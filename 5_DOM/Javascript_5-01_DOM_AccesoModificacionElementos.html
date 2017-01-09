@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Document Object Model - Creación y modificación de elementos</title>
+        <meta charset="UTF-8">
+		<style>
+            .miClase{
+                color:red;
+            }
+        </style>
+        <script>
+            window.addEventListener("load",inicio);
+            
+            function inicio(){
+                document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+                document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+                document.getElementById("quitarClases").addEventListener("click",quitarClases);
+            }
+            
+            function cambiarTextos(){
+                //Selecciónar UN UNICO elemento según su id
+                document.getElementById("parrafo1").innerHTML = "Primer párrafo cambiado";
+                //Selecionar TODOS los elementos según su etiqueta
+                document.getElementsByTagName("p")[1].innerHTML = "Segundo párrafo cambiado";
+                //Seleccionar TODOS los elementos según su clase
+                document.getElementsByClassName("miClase")[0].innerHTML = "Tercer párrafo cambiado";
+                
+                //Seleccionar un elemento dentro de otro
+                var principal = document.getElementById("main");
+                var parrafo1 = principal.getElementById("parrafo1");
+                
+                //Sleecionar el PRIMER elemento con un selector CSS
+                /*document.querySelector("p.miClase");
+                document.querySelector("p.miClase")[0];*/
+            }
+            
+            function cambiarClases(){
+                document.getElementById("parrafo1").setAttribute("class","miClase");
+                document.getElementById("parrafo2").className = "miClase";
+            }
+            
+            function quitarClases(){
+                for(var i = 0; i<document.getElementsByTagName("p").length; i++){
+                    document.getElementsByTagName("p")[i].className="";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <p id="parrafo1">Este es el primer párrafo</p>
+            <p id="parrafo2">Este es el segundo párrafo</p>
+            <p id="parrafo3" class="miClase">Este es el tercer párrafo</p>
+        </div>
+        <br/>
+        <button id="cambiarTextos">Cambiar texto de párrafos</button>
+        <button id="cambiarClases">Cambiar clases de párrafos</button>
+        <button id="quitarClases">Quitar clases de todos los párrafos</button>
+    </body>
+</html>
