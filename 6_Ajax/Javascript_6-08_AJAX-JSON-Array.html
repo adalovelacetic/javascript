@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ajax con PHP y JSON</title>
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("mostrar").addEventListener("click", mostrar)
+        }
+
+        function mostrar() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //Al hacer parse de un array recibimos un array
+                    var alumnos = JSON.parse(this.responseText);
+
+                    //Recorremos el array
+                    for (var i = 0; i < alumnos.length; i++) {
+                        document.getElementById("parrafo").innerHTML += alumnos[i] + "<br/>";
+                    }
+
+                    //Para convertir un array Javascript en cadena JSON usamos stringfy
+                    var cadena = JSON.stringify(alumnos);
+                    document.getElementById("parrafo").innerHTML += "El array " + alumnos + "en modo cadena es " + cadena + "<br/>";
+                }
+            }
+            xhr.open("GET", "Ajax_JSON_array.php", true);
+            xhr.send();
+        }
+    </script>
+</head>
+
+<body>
+    <button id="mostrar">Mostrar</button>
+    <p id="parrafo"></p>
+</body>
+
+</html>

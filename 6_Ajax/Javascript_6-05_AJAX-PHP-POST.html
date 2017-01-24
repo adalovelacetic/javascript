@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ajax con PHP</title>
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("nombre").addEventListener("keyup", mostrarNombre);
+        }
+
+        function mostrarNombre(e) {
+            var cadena = e.target.value;
+            //var cadena = document.getElementById("nombre").value
+
+            if (cadena.length == 0) {
+                document.getElementById("sugerencia").innerHTML = "";
+                return;
+            } else {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("sugerencia").innerHTML = this.responseText;
+                        }
+                    }
+                    //xhr.open("GET","arraynombres.php?nombre="+cadena,true);
+                xhr.open("POST", "arraynombres.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //xhr.send(); //En caso de que utilizáramos GET
+                xhr.send("nombre=" + cadena);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p><b>Escribe un nombre en el cuadro inferior:</b></p>
+    <form>
+        Nombre:
+        <input type="text" id="nombre" />
+    </form>
+    <p>Sugerencias: <span id="sugerencia"></span></p>
+</body>
+
+</html>
