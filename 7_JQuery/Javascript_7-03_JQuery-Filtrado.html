@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(inicio);
+        function inicio(){
+            /* FILTRADO DE SELECCIONES:
+            //.has: opera sobre elementos que contienen otros elementos incluidos en el has
+            $("div.parrafos").has("p"); //Devuelve div.parrafos
+            //.not: opera sobre elementos que NO contienen otros elementos indicados en el has
+            $("p").not(".importante"); //Devuelve párrafos sin clase importante
+            //.filter: opera en elementos que coinciden con la búsqueda
+            $("p").filter(".importante"); //Devuelve p con clase importante
+            //.find: devuelve descendientes de un elemento
+            $("p#primero").find("span"); //Devuelve los span del p#primero
+            
+            //.first, .last: Devuelve primer o último elemento de un alista
+            $("p").first(); //Devuelve el primer párrafo
+            //.eq(número): Devuelve el elemento que coincide con la posición indicada
+            $("p").eq(5); //Devuelve el sexto párrafo*/
+            
+            /* ENCADENAMIENTO DE SELECCIONES */
+            $("div#textos") //Etiqueta con id=textos
+                .find("p") //Solo párrafos
+                .eq(0) //Primer párrafo
+                .html("TEXTO CAMBIADO EN PRIMER PÁRRAFO") //Cambio el html
+                .end() //Restablece a los elementos del párrafo
+                .eq(2) //Tercer párrafo
+                .html("TEXTO CAMBIADO EN TERCER PÁRRAFO");
+        }
+    </script>
+    </head>
+
+<body>
+    <div id="textos">
+        <p id="primero">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <h3>Titulo</h3>
+        <p class="importante">Parrafo 3</p>
+    </div>
+</body>
+</html>

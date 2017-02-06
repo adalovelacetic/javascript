@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- JQUERY
+    - Librería de Javascript que permite "escribir menos y hacer más".
+    - Hace más sencillo el uso de JavaScript en una web: reduce el código.
+    - Simplifica el trabajo con DOM y AJAX. -->
+    
+    <meta charset="utf-8" />
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script-->
+        <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        /* SINTAXIS: $(selector).accion() */
+        
+        /* ESPERAR A LA CARGA DEL HTML */
+        //Con función anónima
+        /*$(document).ready(function(){
+            alert("Página cargada correctamente");
+        });*/
+        //Con función con nombre
+        $(document).ready(inicio);
+        function inicio(){
+            alert("Página cargada correctamente");
+            document.getElementById("hola").innerHTML = "¡Hola, mundo!";
+        }
+        
+        //Versión reducida
+        /*$(function(){
+            alert("Página cargada correctamente");
+        });*/
+    </script>
+    </head>
+
+<body>
+    <p id="hola"></p>
+</body>
+</html>

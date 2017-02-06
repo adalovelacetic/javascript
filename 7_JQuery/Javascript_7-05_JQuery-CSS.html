@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio() {
+            //EXTRAER PROPIEDADES CSS
+            //Utilizando estilos CSS
+            console.log($("h1").css("font-size")); //Devuelve el nº de píxeles de la fuente h1
+            //Utilizando formato CamelCase
+            console.log($("h1").css("fontSize")); //Devuelve el nº de píxeles de la fuente h1
+
+            //MODIFICAR PROPIEDADES CSS
+            //Una sola propiedad
+            $("h1").css("fontSize", "40px");
+            //Varias propiedades
+            $("h1").css({
+                "fontSize": "40px",
+                "color": "red"
+            });
+
+            //MODIFICAR CLASES CSS
+            $("h3").addClass("verde"); //Añade una clase
+            $("h3").removeClass("verde"); //Borra una clase
+            $("h3").toggleClass("verde"); //Añade una clase si no la tiene; sino la elimina
+            $("h3").hasClass("verde"); //Devuelve true/false si contiene la clase
+
+            $("h3").click(function () {
+                $(this).toggleClass("verde");
+            });
+
+            //MÉTODOS PROPIOS PARA CAMBIAR DIMENSIONES CSS
+            //.width(), .heigth(), .innerWidth(), .innerHeight(), .outerWidth(), .outerHeight();
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Titulo 1</h1>
+    <h3>Titulo3</h3>
+</body>
+
+</html>

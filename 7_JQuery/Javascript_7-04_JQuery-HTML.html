@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(inicio);
+        function inicio(){
+            //EXTRAER INFORMACIÓN DE UN ELEMENTO (GET): paréntesis sin parámetros
+            console.log($("p#primero").html()); //Extraigo código html
+            console.log($("p#primero").text()); //Extraigo texto
+            console.log($("input").val()); //Extraigo el valor de un input
+            
+            //MODIFICAR/AÑADIR INFORMACIÓN DE UN ELEMENTO (SET): valor entre paréntesis
+            $("p#primero").html("Nuevo valor del párrafo 1"); //Introducir código html
+            $("p#primero").text("Nuevo valor del párrafo 1"); //Introducir texto
+            $("input").val("Nuevo valor del input"); //Introducir un valor en un input
+            
+            //EXTRAER INFORMACIÓN DE UN ATRIBUTO (GET)
+            console.log($("a").attr("href"));
+            
+            //MODIFICAR/AÑADIR INFORMACIÓN DE UN ATRIBUTO (SET)
+            //Un solo atributo
+            /*$("a").attr("href","todoslosenlaces.html");
+            //Varios atributos
+            $("a").attr({
+                "title":"Todos los enlaces",
+                "href":"todoslosenlaces2.html"
+            });*/
+            
+            //FUNCIONES CALLBACK: los métodos text, html, val y attr tienen una función callback con dos parámetros: el índice del elemento actual en la lista de elementos seleccionados, y el valor orginal
+            $("button#cambiar").click(function(){
+               $("a").attr("href",function(i,original){
+                   return original + "/nuevo";
+               }) 
+            });
+        }
+    </script>
+    </head>
+
+<body>
+    <div id="textos">
+        <h1>Cabecera</h1>
+        <p id="primero">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <h3>Titulo</h3>
+        <p class="importante">Parrafo 3</p>
+        <input value="Texto del input"/><br/>
+        <a href="http://www.miweb.com">Enlace</a><br/>
+        <button id="cambiar">Cambiar</button>
+    </div>
+</body>
+</html>
