@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio() {
+            //ASCENDIENTES:
+            //.parent(): padre directo
+            //$("span").parent().css("border", "2px solid blue");
+            //.parents(): todos los antecesores hasta html.
+            //$("span").parents().css("border", "2px solid blue");
+            //.parentsUntil(): todos los antecesores hasta uno en concreto
+            //$("span").parentsUntil("div").css("border", "2px solid blue");
+            //.closest("etiqueta"): antecesor más cercano con esa etiqueta
+            //$("span").closest("ul").css("border", "2px solid blue");
+
+            //DESCENDIENTES:
+            //.children(): devuelve hijos directos. Podemos pasar parámetros
+            //$("li").children().css("border", "2px solid red");
+            //$("li").children("i.cur").css("border", "2px solid red");
+            //.find(): hijos que cumplan con una condición
+            //$("div").find("b").css("border", "2px solid red");
+
+            //HERMANOS:
+            //.siblings(): todos los hermanos
+            //$("i").siblings().css("border", "2px solid green");
+            //.next(), prev()
+            //$("i").next().css("border", "2px solid green");
+            //.nextAll(), prevAll()
+            //$("span").nextAll().css("border", "2px solid green");
+            //.nextUntil(), prevUntil()
+            //$("span").nextUntil("b").css("border", "2px solid green");
+
+            //FILTRADO
+            //.has, .not, .first, .last, .eq(número)
+
+            //AÑADIR ELEMENTOS A UNA SELECCIÓN: ¡Ojo, no crea elementos!
+            //.add(): entre paréntesis selector, elemento, html, selección...
+            $("span").add("b").add("div").css("border", "2px solid orange");
+        }
+    </script>
+</head>
+
+<body class="ancestors">body (tatarabuelo)
+    <div style="width:500px;">div (bisabuelo)
+        <ul>ul (abuelo)
+            <li>li (padre)
+                <span>span</span> <i class="cur">cursiva</i> <b>negrita</b><u>subrayado</u>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
