@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        #panel {
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+    </style>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio() {
+            //Sintaxis de efectos y animaciones
+            //$(selector).efecto(velocidad) //"slow", "fast", nº de ms
+            //jQuery.fx.speeds
+            jQuery.fx.speeds.myRapido = 50;
+
+            //Ocultar
+            $("#ocultar").click(function () {
+                //$("p").hide();
+                $("p").hide(1500);
+            });
+            //Mostrar
+            $("#mostrar").click(function () {
+                $("p").show("fast");
+            });
+            //Toggle
+            $("#toggle").click(function () {
+                $("p").toggle();
+            });
+            //***************************
+            //fadeIn
+            $("#fadeIn").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(3000);
+            });
+            //fadeOut
+            $("#fadeOut").click(function () {
+                $("#div1").fadeOut();
+                $("#div2").fadeOut("slow");
+                $("#div3").fadeOut(3000);
+            });
+            //fadeToggle
+            $("#fadeToggle").click(function () {
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(3000);
+            });
+            //fadeTo
+            $("#fadeTo").click(function () {
+                $("#div1").fadeTo("slow", 0.15);
+                $("#div2").fadeTo("slow", 0.5);
+                $("#div3").fadeTo("slow", 0.8);
+            });
+
+            //***************************
+            //slideDown
+            $("#slideDown").click(function () {
+                $("#panel").slideDown();
+            });
+            //slideUp
+            $("#slideUp").click(function () {
+                $("#panel").slideUp();
+            });
+            //slideToggle
+            $("#slideToggle").click(function () {
+                $("#panel").slideToggle();
+            });
+
+            //ANIMACIONES **************************
+            //$(selector).animate({parametros},velocidad,function_callback);
+            $("#animar").click(function () {
+                $("#div1").animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '200px'
+                });
+                //.delay(ms): introducir un retardo
+                $("#div1").delay(2000);
+                //$("#div1").delay(2000).animate({...});
+                $("#div1").animate({
+                    height: '100px',
+                    width: '100px',
+                    opacity: '1'
+                }, "slow");
+                $("#div1").animate({
+                    fontSize: '+=10'
+                }, 2000);
+            });
+
+            //Parar una animación
+            //$(selector).stop(stopAll, goToEnd);
+            $("#pararAnimar").click(function () {
+                $("#div1").stop(true, true);
+            });
+
+            //Funciones callback
+            $("#callback").click(function () {
+                $("p").hide(1000, function () {
+                    alert("El párrafo ha sido ocultado");
+                });
+            });
+            /*$("#callback").click(function(){
+                $("p").hide(1000);
+                alert("El párrafo ha sido ocultado");
+            });*/
+
+            //Encadenamiento de efectos
+            $("#encadenar").click(function () {
+                $("p").css("color", "green").hide(2000).delay(500).show(2000);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <p>Texto</p>
+    <button id="ocultar">Ocultar</button>
+    <button id="mostrar">Mostrar</button>
+    <button id="toggle">Toggle</button>
+    <button id="fadeIn">FadeIn</button>
+    <button id="fadeOut">FadeOut</button>
+    <button id="fadeToggle">fadeToggle</button>
+    <button id="fadeTo">fadeTo</button>
+    <button id="slideDown">SlideDown</button>
+    <button id="slideUp">SlideUp</button>
+    <button id="slideToggle">SlideToggle</button>
+    <button id="animar">Animación</button>
+    <button id="pararAnimar">Parar animación</button>
+    <button id="callback">Prueba Callback</button>
+    <button id="encadenar">Prueba encadenar</button>
+    <div id="div1" style="width:80px;height:80px;background-color:red;">¡Hola!</div>
+    <br>
+    <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+    <br>
+    <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+    <div id="flip">Pulsa para bajar la persiana</div>
+    <div id="panel">¡Hola, mundo!</div>
+</body>
+
+</html>

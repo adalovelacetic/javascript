@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+        /* ESPACIO DE NOMBRES $.fn
+                                                                Cuando usamos selecciones utilizamos métodos del espacio de nombres $.fn, y forman parte del objeto JQuery. 
+                                                                Ej. $("div")
+
+                                                                   ESPACIO DE NOMBRES $
+                                                                Cuando no usamos selecciones, utilizamos métodos del espacio de nombres $, y forman parte del núcleo del objeto JQuery. 
+                                                                Ej. $.each o jQuery.each
+                                                                ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!
+                                                                */
+        $(document).ready(inicio);
+
+        function inicio() {
+            //MÉTODOS DE TIPOS
+            /* $.isFunction(elem);
+               $.isEmptyObject(elem);
+               $.isPlainObject(elem);
+               $.isArray(elem);
+               $.isNumeric(elem);
+               $.type(elem);
+               */
+            var miArray = [1, 3, 5];
+            alert("isArray: " + $.isArray(miArray));
+            alert("isFunction: " + $.isFunction(miArray));
+            alert("type: " + $.type(miArray));
+
+            //MÉTODOS DE FECHAS
+            var fechayhora = $.now(); //Número de ms desde 1/1/1970
+            alert(Date(fechayhora));
+
+            //MÉTODO DE CADENA
+            alert("TRIM: *" + $.trim("      varios espacios al principio y fin     ") + "*");
+            
+            //MÉTODO DATA
+            //$.data (nombre,valor) / (nombre) / (objeto)
+            //$.removeData(nombre)
+            $("#nombre").click(function () {
+                $("div").data("nombre", "Ada Lovelace");
+            });
+            $("#nombre2").click(function () {
+                alert($("div").data("nombre"));
+            });
+            $("#nombre3").click(function () {
+                $("div").removeData("nombre");
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <div>Esto es un div</div>
+    <button id="nombre">Guardar nombre</button>
+    <button id="nombre2">Mostrar nombre</button>
+    <button id="nombre3">Borrar nombre</button>
+    <p></p>
+</body>
+
+</html>

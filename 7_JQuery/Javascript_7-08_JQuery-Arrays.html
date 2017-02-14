@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+        /* ESPACIO DE NOMBRES $.fn
+                                                                                                Cuando usamos selecciones utilizamos métodos del espacio de nombres $.fn, y forman parte del objeto JQuery. 
+                                                                                                Ej. $("div")
+
+                                                                                                   ESPACIO DE NOMBRES $
+                                                                                                Cuando no usamos selecciones, utilizamos métodos del espacio de nombres $, y forman parte del núcleo del objeto JQuery. 
+                                                                                                Ej. $.each o jQuery.each
+                                                                                                ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!
+                                                                                                */
+
+        $(document).ready(inicio);
+
+        function inicio() {
+            //Recorrer y manipular elementos de un array/objeto
+            //$.each(array/obj,function(indice,elem){});
+            //$.map(array/obj,function(elem,indice){});
+            //¡OJO! .each es un iterador inmutable que devuelve el array original.
+            //      .map devuelve un array nuevo basado en el original con los cambios.
+
+            //Objeto: utiliza pares clave:valor
+            var obj = {
+                "nombre": "Ada",
+                "apellido": "Lovelace"
+            };
+            $.each(obj, function (clave, valor) {
+                alert(clave + " : " + valor);
+            });
+
+            var array = [1, 3, 5, 7];
+            $.each(array, function (indice, valor) {
+                alert(indice + " : " + valor);
+            });
+
+            //Número de elementos de un array
+            alert("Número de elementos del array " + array.length);
+
+            //Buscar un valor en un array
+            //$.inArray(elem,array): devuelve el índice de un valor en un array, o -1 si el valor no está en el array
+            if ($.inArray(3, array) !== -1) {
+                alert("Valor encontrado en la posición " + $.inArray(3, array));
+            } else {
+                alert("El valor no se encuentra en el array");
+            }
+
+            //Unir dos arrays
+            //$.merge([1,2,3],[4,5,6]);
+            
+            //--------------ARRAYS DE ELEMENTOS JQUERY ---------------------
+            //Recorrer un array de elementos de un selector
+            alert("Recorrer un array de elementos de un selector 'li'");
+            $("#recorrer").click(function () {
+                $("li").each(function () {
+                    alert($(this).text());
+                })
+            });
+
+            //.length: número de elementos de un array
+            alert("Número de elementos li: " + $("li").length);
+
+            //.get(num): extraer el elemento de una posición
+            var elem = $("li").get(2);
+            alert("El elemento número 3 es de tipo " + elem.nodeName + " y contiene " + elem.innerHTML);
+
+            //.index(): extraer el número de un elemento respecto a sus hermanos
+            $("li").click(function () {
+                alert("Has pulsado el elemento " + $(this).index());
+            });
+
+            //$.grep: buscar un elemento que cumpla con una característica: true/false
+            alert("Buscamos los elementos que tengan índice mayor que 1");
+            var filtrado = $.grep($("li"), function (elem, indice) {
+                return indice > 1; //Devolver los elementos con índice > 1
+            });
+            $.each(filtrado, function (indice, elemento) {
+                alert(indice + " : " + elemento.innerHTML);
+            });
+
+            //$.makeArray(array): convertir un array jQuery en un array Javascript
+            alert("Convertimos un array jQuery en Javascript y lo invertimos");
+            var arrayJS = $.makeArray($("li"));
+            arrayJS.reverse();
+            for (var i = 0; i < arrayJS.length; i++) {
+                alert(arrayJS[i].innerHTML);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+    <button id="recorrer">Recorrer lista</button>
+</body>
+
+</html>
