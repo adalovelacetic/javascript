@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Recorrer elementos con DOM</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/u5e3_recorrerElementos.js"></script>
+    </head>
+    <body>
+        <form id="miFormulario">
+            <!-- Comentario de nombre -->
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="importante"/><br/>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido" /><br/>
+            <!-- Comentario de sexo -->
+            <label for="sexo">Sexo</label>
+            <input type="radio" name="sexo" value="Hombre"> Hombre
+            <input type="radio" name="sexo" value="Mujer"> Mujer<br/><br/>
+            <label for="direccion">Direccion</label>
+            <textarea rows="4" cols="50" name="direccion"></textarea><br/>
+            <label for="opciones">Edad</label>
+            <select name="opciones" id="seleccionar">
+                <option value="0-12">0-12</option>
+                <option value="13-17">13-17</option>
+                <option value="18-60">18-60</option>
+                <option value="60-100">60-100</option>
+            </select><br/>
+           <!-- Comentario final -->
+            <button name="boton" id="boton">Boton</button>
+        </form>
+        <button name="enviar" id="enviar">Enviar</button>
+        <div id="info">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+
+html, body {
+  background: #f1f1f1;
+  font-family: 'Merriweather', sans-serif;
+  padding: 1em;
+}
+
+.borde {
+  border: solid 5px blue;
+}
+
+img{
+  width:250px;
+}
