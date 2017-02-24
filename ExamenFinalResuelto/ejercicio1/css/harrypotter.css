@@ -1,0 +1,67 @@
+body{
+    width:80%;
+    margin: 0 auto;
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    color:ghostwhite;
+    font-family: Calibri;
+}
+h1 {
+    text-align: center;
+}
+h1 img#titulo{
+    width: 400px;
+}
+
+div#seleccion{
+    margin: 10px 40px;
+    border: solid 2px #C8BB2F;
+    padding: 20px;
+}
+div.carta{
+    width: 150px;
+    height: 200px;
+    border: solid black 3px;
+    float:left;
+    padding: 10px;
+    margin: 0 20px;
+}
+div.carta img{
+    height: 30px;
+    padding: auto;
+}
+div.carta p {
+    background-color: floralwhite;
+    height: 100px;
+    opacity: 0.8;
+    font-size: 9pt;
+    padding: 10px;
+}
+
+table{
+    width:100%;
+}
+td{
+    width: 33%;
+    vertical-align: top;
+}
+.gryffindor{
+    background-color: #C8BB2F;
+    color:firebrick;
+    border: solid firebrick 3px;
+}
+.hufflepuff{
+    background-color: #C8BB2F;
+    color: dimgrey;
+    border: solid dimgrey 3px;
+}
+.slytherin{
+    background-color: grey;
+    color:darkgreen;
+    border: solid darkgreen 3px;
+}
+.ravenclaw{
+    background-color: grey;
+        color: royalblue;
+    border: solid royalblue 3px;
+}

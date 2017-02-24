@@ -1,0 +1,22 @@
+body{
+        font-family: Calibri, sans-serif;
+        background-image: url(../img/fondo.jpg);
+    }
+img{
+    width: 60px;
+    height:80px;
+}
+img.bandera{
+    width:40px;
+    height:25px;
+}
+table {
+    width: 80%;
+    margin: 0 auto;
+    background-color: aliceblue;
+    opacity: 0.6;
+}
+td{
+    border: solid 1px black;
+    padding: 20px;
+}
