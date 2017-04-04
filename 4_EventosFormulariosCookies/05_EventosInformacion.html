@@ -9,31 +9,37 @@
 
 <body>
     <h1 id="eventos">Obtener información de un evento</h1>
+    <h2 id="parrafo1">Párrafo 1</h2>
+    <h2 id="parrafo2">Párrafo 2</h2>
     <script>
-        <!-- Navegadores de Microsoft -->
-        var evento = window.event;
+        document.getElementById("eventos").addEventListener("mouseover", manejador);
+        document.getElementById("eventos").addEventListener("mouseout", manejador);
+        document.getElementById("parrafo1").addEventListener("click", saludo);
+        document.getElementById("parrafo2").addEventListener("click", saludo);
 
-        <!-- Navegadores del W3C -->
-        function manejador(e) { //Creado automáticamente por el navegador
-            var evento = e;
-        }
+        function manejador(e) {
+            //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+            if (!e) e = window.event;
 
-        <!-- En cualquier navegador -->
-        function manejador2(e) {
-            var evento = e || window.event;
-
-            //Tratamiento de eventos en función del tipo (propiedad "type", devuelve un evento sin "on")
-            switch (evento.type) {
-            case 'mouseover':
+            switch (e.type) {
+            case "mouseover":
                 this.style.color = "purple";
                 break;
-            case 'mouseout':
-                this.style.backgroundColor = "yellow";
+            case "mouseout":
+                this.style.color = "yellow";
                 break;
             }
         }
-        document.getElementById("eventos").onmouseover = manejador2;
-        document.getElementById("eventos").onmouseout = manejador2;
+
+        function saludo(e) {
+            //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+            if (!e) e = window.event;
+
+            if (e.target.id == "parrafo1") alert("Has pulsado el primer párrafo");
+            else if (e.target.id == "parrafo2") alert("Has pulsado el segundo párrafo");
+
+            alert("Has pulsado el " + e.target.id);
+        }
     </script>
 </body>
 
