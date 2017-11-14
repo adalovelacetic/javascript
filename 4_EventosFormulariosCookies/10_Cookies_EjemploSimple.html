@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies - Ejemplo práctico</title>
+
+</head>
+
+<body>
+    <button type="button" id="verTodas">Ver todas las cookies</button>
+    <button type="button" id="crearCookie1">Crear cookie 1</button>
+    <button type="button" id="crearCookie2">Crear cookie 2</button>
+    <button type="button" id="borrarCookie1">Borrar cookie 1</button>
+    <button type="button" id="borrarCookie2">Borrar cookie 2</button>
+    <script>     
+document.getElementById("verTodas").addEventListener("click",verTodas);
+document.getElementById("crearCookie1").addEventListener("click",crearCookie);
+document.getElementById("crearCookie2").addEventListener("click",crearCookie);
+document.getElementById("borrarCookie1").addEventListener("click",borrarCookie);
+document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
+        
+        function verTodas(){
+            alert(document.cookie);
+        }
+        
+        function crearCookie(e){
+            if(!e) e = window.event;
+            if (e.target.id=="crearCookie1") 
+                document.cookie ="nombre = Ada";
+            else if (e.target.id=="crearCookie2") 
+                document.cookie ="apellido = Lovelace";
+        }
+        
+        function borrarCookie(e){
+            if(!e) e = window.event;
+            if (e.target.id=="borrarCookie1") 
+                document.cookie ="nombre =;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            else if (e.target.id=="borrarCookie2") 
+                document.cookie ="apellido =;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        }
+    </script>
+    
+</body>
+
+</html>
