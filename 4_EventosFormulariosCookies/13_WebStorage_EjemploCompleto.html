@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebStorage - Ejemplo completo</title>
+
+</head>
+
+<body>
+    <button type="button" id="incrementar">Incrementar</button>
+    <button type="button" id="decrementar">Decrementar</button>    
+    <button type="button" id="logout">Log out</button>    
+    <p id="saludo"></p>
+    <p id="contador"></p>
+    <script>
+    //Comprobación de que el navegador soporta Web Storage
+    if (typeof(Storage) !== "undefined") {
+        alert("El navegador soporta WebStorage");
+        if (localStorage.usuario!=null){
+            document.getElementById("saludo").innerHTML="¡Bienvenido/a de nuevo, "+localStorage.usuario+"!";
+        }else{
+            localStorage.usuario=prompt("¿Cómo te llamas?");
+            document.getElementById("saludo").innerHTML="Tu primera visita, "+  localStorage.usuario+"!";
+        }
+        
+        if(!sessionStorage.getItem("contador")) 
+            sessionStorage.setItem("contador","0");
+
+        document.getElementById("contador").innerHTML="Contador: "+sessionStorage.getItem("contador");
+        document.getElementById("incrementar").addEventListener("click",incrementar);
+        document.getElementById("decrementar").addEventListener("click",decrementar);
+        document.getElementById("logout").addEventListener("click",logout);
+    } else {
+        alert ("El navegador no soporta Web Storage");
+    }
+        
+    function incrementar(){
+        sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))+1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function decrementar(){
+        sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))-1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function logout(){
+        alert("Se ha cerrado la sesión de "+localStorage.getItem("usuario"));
+        localStorage.removeItem("usuario");
+        //sessionStorage.clear();
+        document.getElementById("saludo").innerHTML = "";
+    }
+
+    </script>       
+</body>
+</html>
